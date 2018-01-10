@@ -51,22 +51,22 @@ function create() {
     ledge.enableBody = true;
     ledge.body.gravity.y = 250;
    //new ledges
-    ledge = platforms.create(400, 1000, 'ground');
+    ledge = platforms.create(0, 450, 'ground');
     ledge.body.immovable = false;
     ledge.enableBody = true;
-    ledge.body.gravity.y = 250;
-    ledge = platforms.create(0, 700, 'ground');
+    ledge.body.gravity.y = 50;
+    ledge = platforms.create(-150, 400, 'ground');
     ledge.body.immovable = false;
     ledge.enableBody = true;
-    ledge.body.gravity.y = 250;
+    ledge.body.gravity.y = 50;
     ledge = platforms.create(400, 800, 'ground');
     ledge.body.immovable = false;
     ledge.enableBody = true;
-    ledge.body.gravity.y = 250;
-    ledge = platforms.create(0, 1050, 'ground');
+    ledge.body.gravity.y = 50;
+    ledge = platforms.create(0, 400, 'ground');
     ledge.body.immovable = false;
     ledge.enableBody = true;
-    ledge.body.gravity.y = 250;
+    ledge.body.gravity.y = 100;
     // The player and its settings
     player = game.add.sprite(32, game.world.height - 150, 'dude');
     //  We need to enable physics on the player
