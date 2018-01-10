@@ -46,19 +46,23 @@ function create() {
     ledge.body.immovable = false;
     ledge.enableBody = true;
     ledge.body.gravity.y = 25;
+    ledge.body.bounce.y = 0.5;
     ledge = platforms.create(-150, 250, 'ground');
     ledge.body.immovable = false;
     ledge.enableBody = true;
     ledge.body.gravity.y = 30;
+    ledge.body.bounce.y = 0.5;
    //new ledges
     ledge = platforms.create(0, 400, 'ground');
     ledge.body.immovable = false;
     ledge.enableBody = true;
     ledge.body.gravity.y = 25;
+    ledge.body.bounce.y = 0.5;
     ledge = platforms.create(400, 500, 'ground');
     ledge.body.immovable = false;
     ledge.enableBody = true;
     ledge.body.gravity.y = 25;
+    ledge.body.bounce.y = 0.5;
     // The player and its settings
     player = game.add.sprite(32, game.world.height - 150, 'dude');
     //  We need to enable physics on the player
