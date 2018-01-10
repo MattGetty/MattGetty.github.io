@@ -78,7 +78,7 @@ function create() {
         //  Create a star inside of the 'stars' group
         var star = stars.create(i * 50, 0, 'star');
         //  Let gravity do its thing
-        star.body.gravity.y = 300;
+        star.body.gravity.y = 1000;
         //  This just gives each star a slightly random bounce value
         star.body.bounce.y = 0.5 + Math.random() * 0.2;
     }
@@ -91,7 +91,7 @@ function create() {
 function update() {
     //  Collide the player and the stars with the platforms
     game.physics.arcade.collide(player, platforms);
-  //  game.physics.arcade.collide(stars, platforms);
+    game.physics.arcade.collide(stars, platforms);
     //  Checks to see if the player overlaps with any of the stars, if he does call the collectStar function
     game.physics.arcade.overlap(player, stars, collectStar, null, this);
     //  Reset the players velocity (movement)
