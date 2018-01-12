@@ -93,6 +93,17 @@ function create() {
     //  Our controls.
     cursors = game.input.keyboard.createCursorKeys();
     
+    //maintaining aspect ratio while going full screen
+    game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
+    game.input.onDown.add(goFullscreen, this);
+}
+function goFullScreen(){
+  if (game.scale.isFullScreen){
+    game.scale.stopFullScreen();
+  }
+  else{
+    game.scale.startFullScreen(false);
+  }
 }
 function update() {
     //  Collide the player and the stars with the platforms
