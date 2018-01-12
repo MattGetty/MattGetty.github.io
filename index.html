@@ -95,9 +95,9 @@ function create() {
     
     //maintaining aspect ratio while going full screen
     game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
-    game.input.onDown.add(goFullscreen, this);
+    game.input.onDown.add(gofull, this);
 }
-function goFullScreen(){
+function gofull(){
   if (game.scale.isFullScreen){
     game.scale.stopFullScreen();
   }
