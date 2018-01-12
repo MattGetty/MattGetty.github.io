@@ -18,7 +18,11 @@ function preload() {
     game.load.image('sky', 'assets/sky.png');
     game.load.image('ground', 'assets/platform.png');
     game.load.image('star', 'assets/star.png');
-    game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
+    game.load.spritesheet('dude', 'assets/undertale.png', 280, 400);
+    game.load.audio('background_music', 'assets/MissionImpossible.mp3');
+    backgroundMusic = game.add.audio('background_music');
+    backgroundMUsic.loop= true;
+    backgroundMusic.play();
 }
 var player;
 var platforms;
