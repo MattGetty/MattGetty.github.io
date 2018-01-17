@@ -18,11 +18,7 @@ function preload() {
     game.load.image('sky', 'assets/sky.png');
     game.load.image('ground', 'assets/platform.png');
     game.load.image('star', 'assets/star.png');
-    game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
-    game.load.audio('background_music', 'assets/MissionImpossible.mp3');
-    backgroundMusic = game.add.audio('background_music');
-    backgroundMUsic.loop= true;
-    backgroundMusic.play();
+    game.load.spritesheet('dude', 'assets/Moonkeys.png', 32, 48);
 }
 var player;
 var platforms;
@@ -47,26 +43,9 @@ function create() {
     ground.body.immovable = true;
     //  Now let's create two ledges
     var ledge = platforms.create(400, 400, 'ground');
-    ledge.body.immovable = false;
-    ledge.enableBody = true;
-    ledge.body.gravity.y = 25;
-    ledge.body.bounce.y = 0.5;
+    ledge.body.immovable = true;
     ledge = platforms.create(-150, 250, 'ground');
-    ledge.body.immovable = false;
-    ledge.enableBody = true;
-    ledge.body.gravity.y = 30;
-    ledge.body.bounce.y = 0.5;
-   //new ledges
-    ledge = platforms.create(0, 400, 'ground');
-    ledge.body.immovable = false;
-    ledge.enableBody = true;
-    ledge.body.gravity.y = 25;
-    ledge.body.bounce.y = 0.5;
-    ledge = platforms.create(400, 500, 'ground');
-    ledge.body.immovable = false;
-    ledge.enableBody = true;
-    ledge.body.gravity.y = 25;
-    ledge.body.bounce.y = 0.5;
+    ledge.body.immovable = true;
     // The player and its settings
     player = game.add.sprite(32, game.world.height - 150, 'dude');
     //  We need to enable physics on the player
@@ -82,38 +61,26 @@ function create() {
     stars = game.add.group();
     //  We will enable physics for any star that is created in this group
     stars.enableBody = true;
-    //  Here we'll create 20 of them evenly spaced apart
-    for (var i = 0; i < 20; i++)
+    //  Here we'll create 12 of them evenly spaced apart
+    for (var i = 0; i < 12; i++)
     {
         //  Create a star inside of the 'stars' group
-        var star = stars.create(i * 50, 0, 'star');
+        var star = stars.create(i * 70, 0, 'star');
         //  Let gravity do its thing
-        star.body.gravity.y = 25;
+        star.body.gravity.y = 300;
         //  This just gives each star a slightly random bounce value
-        star.body.bounce.y = 0.5 + Math.random() * 0.2;
+        star.body.bounce.y = 0.7 + Math.random() * 0.2;
     }
     //  The score
     scoreText = game.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
     //  Our controls.
     cursors = game.input.keyboard.createCursorKeys();
     
-    //maintaining aspect ratio while going full screen
-    game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
-    game.input.onDown.add(gofull, this);
-}
-function gofull(){
-  if (game.scale.isFullScreen){
-    game.scale.stopFullScreen();
-  }
-  else{
-    game.scale.startFullScreen(false);
-  }
 }
 function update() {
     //  Collide the player and the stars with the platforms
     game.physics.arcade.collide(player, platforms);
-    //game.physics.arcade.collide(stars, platforms);
-    game.physics.arcade.collide(platforms, platforms);
+    game.physics.arcade.collide(stars, platforms);
     //  Checks to see if the player overlaps with any of the stars, if he does call the collectStar function
     game.physics.arcade.overlap(player, stars, collectStar, null, this);
     //  Reset the players velocity (movement)
