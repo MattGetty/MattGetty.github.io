@@ -55,8 +55,8 @@ function create() {
     player.body.gravity.y = 300;
     player.body.collideWorldBounds = true;
     //  Our two animations, walking left and right.
-    player.animations.add('left', [13, 14, 15, 16], 0, true);
-    player.animations.add('right', [25, 26, 27, 28], 0, true);
+    player.animations.add('left', [13, 14, 15], 0, true);
+    player.animations.add('right', [25, 26, 27], 0, true);
     //  Finally some stars to collect
     stars = game.add.group();
     //  We will enable physics for any star that is created in this group
