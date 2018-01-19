@@ -123,6 +123,8 @@ function collectBanana (player, banana) {
     score += 100;
     scoreText.text = 'Score: ' + score;
 }
+ game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
+  game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 function gofull() {
   if (game.scale.isFullScreen) {
     game.scale.stopFullScreen();
