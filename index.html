@@ -123,6 +123,12 @@ function collectBanana (player, banana) {
     score += 100;
     scoreText.text = 'Score: ' + score;
 }
+function gofull() {
+  if (game.scale.isFullScreen) {
+    game.scale.stopFullScreen();
+  } else {
+    game.scale.startFullScreen(false);
+  }
 </script>
 
 </body>
