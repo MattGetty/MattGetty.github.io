@@ -23,6 +23,14 @@ function preload() {
     backgroundMusic = game.add.audio('background_music');
     backgroundMusic.loop= true;
     backgroundMusic.play();
+    game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
+  game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+function gofull() {
+  if (game.scale.isFullScreen) {
+    game.scale.stopFullScreen();
+  } else {
+    game.scale.startFullScreen(false);
+  }
 }
 var player;
 var platforms;
@@ -123,14 +131,6 @@ function collectBanana (player, banana) {
     score += 100;
     scoreText.text = 'Score: ' + score;
 }
- game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
-  game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-function gofull() {
-  if (game.scale.isFullScreen) {
-    game.scale.stopFullScreen();
-  } else {
-    game.scale.startFullScreen(false);
-  }
 </script>
 
 </body>
