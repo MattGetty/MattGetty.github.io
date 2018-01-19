@@ -48,15 +48,6 @@ function create() {
     
     //  Now let's create two ledges
     var ledge = platforms.create(400, 400, 'ground');
-    
-    platforms.physicsBodyType = Phaser.Physics.ARCADE;
-    var platform = game.add.sprite(x, y, 'platform');
-    game.physics.enable(platform, Phaser.Physics.ARCADE);
-    platform.body.immovable = true;
-    platform.body.allowGravity = false;
-    platform.body.collideWorldBounds = true;
-    platforms.add(platform);
-    
     ledge.body.immovable = true;
     ledge = platforms.create(-150, 250, 'ground');
     ledge.body.immovable = true;
