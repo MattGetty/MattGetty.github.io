@@ -72,5 +72,5 @@ addPlatform: function(y){
             this.addTile(i * me.tileWidth, y);
         }          
     }
- 
 }
+me.timer = game.time.events.loop(2000, me.addPlatform, me);
