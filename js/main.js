@@ -74,3 +74,19 @@ addPlatform: function(y){
     }
 }
 me.timer = game.time.events.loop(2000, me.addPlatform, me);
+initPlatforms: function(){
+ 
+    var me = this,
+        bottom = me.game.world.height - me.tileHeight,
+        top = me.tileHeight;
+ 
+    //Keep creating platforms until they reach (near) the top of the screen
+    for(var y = bottom; y > top - me.tileHeight; y = y - me.spacing){
+        me.addPlatform(y);
+    }
+}
+//The spacing for the initial platforms
+me.spacing = 300;
+ 
+//Create the inital on screen platforms
+me.initPlatforms();
