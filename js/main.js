@@ -1,7 +1,13 @@
 var Main = function(game){
 var me = this;
  
-    //Get the dimensions of the tile we are using
+   
+};
+
+Main.prototype = {
+
+	create: function() {
+//Get the dimensions of the tile we are using
     me.tileWidth = me.game.cache.getImage('tile').width;
     me.tileHeight = me.game.cache.getImage('tile').height;
  
@@ -15,23 +21,53 @@ var me = this;
     me.platforms = me.game.add.group();
     me.platforms.enableBody = true;
     me.platforms.createMultiple(250, 'tile');
- 
-};
-
-Main.prototype = {
-
-	create: function() {
-
 	},
 
 	update: function() {
-
-	},
+ 
+    var me = this;
+ 
+    //Make the sprite collide with the ground layer
+    me.game.physics.arcade.collide(me.player, me.platforms);
+ 
+ 
+    //Check if the player is touching the bottom
+    if(me.player.body.position.y >= me.game.world.height - me.player.body.height){
+        me.gameOver();
+    }
+ //Make the sprite jump when the up key is pushed
+if(me.cursors.up.isDown && me.player.body.wasTouching.down) {
+    me.player.body.velocity.y = -1400;
+}
+//Make the player go left
+if(me.cursors.left.isDown){
+    me.player.body.velocity.x += -30;
+}
+//Make the player go right
+if(me.cursors.right.isDown){
+    me.player.body.velocity.x += 30;
+}
+},
 
 	gameOver: function(){
 		this.game.state.start('GameOver');
 	}
-
+	
+	//Add the player to the screen
+me.createPlayer();
+//The spacing for the initial platforms
+me.spacing = 300;
+ 
+//Create the inital on screen platforms
+me.initPlatforms();
+me.timer = game.time.events.loop(2000, me.addPlatform, me);
+//Enable cursor keys so we can create some controls
+me.cursors = me.game.input.keyboard.createCursorKeys(); 
+	//Create the score variable
+me.score = 0;
+ 
+//Create the score label
+me.createScore();
 };
 addTile: function(x, y){
  
@@ -55,9 +91,11 @@ addPlatform: function(y){
     var me = this;
  
     //If no y position is supplied, render it just outside of the screen
-    if(typeof(y) == "undefined"){
-        y = -me.tileHeight;
-    }
+if(typeof(y) == "undefined"){
+    y = -me.tileHeight;
+    //Increase the players score
+    me.incrementScore();
+}
  
     //Work out how many tiles we need to fit across the whole screen
     var tilesNeeded = Math.ceil(me.game.world.width / me.tileWidth);
@@ -90,3 +128,49 @@ me.spacing = 300;
  
 //Create the inital on screen platforms
 me.initPlatforms();
+createPlayer: function(){
+ 
+    var me = this;
+ 
+    //Add the player to the game by creating a new sprite
+    me.player = me.game.add.sprite(me.game.world.centerX, me.game.world.height - (me.spacing * 2 + (3 * me.tileHeight)), 'player');
+ 
+    //Set the players anchor point to be in the middle horizontally
+    me.player.anchor.setTo(0.5, 1.0);
+ 
+    //Enable physics on the player
+    me.game.physics.arcade.enable(me.player);
+ 
+    //Make the player fall by applying gravity
+    me.player.body.gravity.y = 2000;
+ 
+    //Make the player collide with the game boundaries
+    me.player.body.collideWorldBounds = true;
+ 
+    //Make the player bounce a little
+    me.player.body.bounce.y = 0.1;
+ 
+},
+gameOver: function(){
+    this.game.state.start('Main');
+},
+	createScore: function(){
+ 
+    var me = this;
+ 
+    var scoreFont = "100px Arial";
+ 
+    me.scoreLabel = me.game.add.text((me.game.world.centerX), 100, "0", {font: scoreFont, fill: "#fff"});
+    me.scoreLabel.anchor.setTo(0.5, 0.5);
+    me.scoreLabel.align = 'center';
+ 
+},
+ 
+incrementScore: function(){
+ 
+    var me = this;
+ 
+    me.score += 1;  
+    me.scoreLabel.text = me.score;     
+ 
+},
