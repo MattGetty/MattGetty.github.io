@@ -88,7 +88,8 @@ function create() {
     scoreText = game.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
     //  Our controls.
     cursors = game.input.keyboard.createCursorKeys();
-    
+	game.camera.follow(player, Phaser.camera.FOLLOW_LOCKON);
+	style = 'STYLE_LOCKON';
 }
 function update() {
     //  Collide the player and the bananas with the platforms
@@ -131,9 +132,6 @@ function collectBanana (player, banana) {
     score += 100;
     scoreText.text = 'Score: ' + score;
 }
-function  {
-	game.camera.follow(player, Phaser.camera.FOLLOW_LOCKON);
-	style = 'STYLE_LOCKON';
 </script>
 
 </body>
