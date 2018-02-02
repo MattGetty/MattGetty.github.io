@@ -53,7 +53,7 @@ function create() {
     ground.scale.setTo(2, 2);
     //  This stops it from falling away when you jump on it
     ground.body.immovable = true;
-    
+    game.camera.follow(player);
     //  Now let's create two ledges
     var ledge = platforms.create(400, 400, 'ground');
     ledge.body.immovable = true;
@@ -131,6 +131,9 @@ function collectBanana (player, banana) {
     score += 100;
     scoreText.text = 'Score: ' + score;
 }
+function  {
+	game.camera.follow(player, Phaser.camera.FOLLOW_LOCKON);
+	style = 'STYLE_LOCKON';
 </script>
 
 </body>
