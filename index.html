@@ -23,6 +23,9 @@ function preload() {
     backgroundMusic = game.add.audio('background_music');
     backgroundMusic.loop= true;
     backgroundMusic.play();
+	
+	                                       //my fullscreen no workuru
+	
 //    game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
 //  game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 //function gofull() {
@@ -109,6 +112,8 @@ function create() {
     }
     //  The score
     scoreText = game.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
+	scoreText.fixedToCamera = true;
+	scoreText.cameraOffset.setTo(0,0);
     //  Our controls.
     cursors = game.input.keyboard.createCursorKeys();
 	game.camera.follow(player, Phaser.Camera.FOLLOW_PLATFORMER);
