@@ -42,9 +42,7 @@ function create() {
     //  We're going to be using physics, so enable the Arcade Physics system
     game.physics.startSystem(Phaser.Physics.ARCADE);
     //  A simple background for our game
-    game.add.sprite(0, 0, 'sky');
-	game.add.sprite(0, game.world.height 4000, 'sky');
-	
+    game.add.sprite(0, 0, 'sky');	
     //  The platforms group contains the ground and the 2 ledges we can jump on
     platforms = game.add.group();
     //  We will enable physics for any object that is created in this group
