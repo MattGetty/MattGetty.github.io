@@ -13,7 +13,7 @@
 <body>
 
 <script type="text/javascript">
-var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+var game = new Phaser.Game(800, 400, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 function preload() {
     game.load.image('sky', 'assets/sky.png');
     game.load.image('ground', 'assets/platform.png');
@@ -85,7 +85,7 @@ function create() {
     ledge.body.immovable = true;
 	ledge = platforms.create(-100, game.world.height - 2450, 'ground');
     ledge.body.immovable = true;
-	ledge = platforms.create(-100, game.world.height - 2650, 'ground');
+	ledge = platforms.create(-50, game.world.height - 2650, 'ground');
     ledge.body.immovable = true;
 	ledge = platforms.create(450, game.world.height - 2850, 'ground');
     ledge.body.immovable = true;
@@ -99,11 +99,11 @@ function create() {
     ledge.body.immovable = true;
 	ledge = platforms.create(-100, game.world.height - 3750, 'ground');
     ledge.body.immovable = true;
-	ledge = platforms.create(500, game.world.height - 3950, 'ground');
+	ledge = platforms.create(500, game.world.height - 3900, 'ground');
     ledge.body.immovable = true;
-	ledge = platforms.create(-150, game.world.height - 4150, 'ground');
+	ledge = platforms.create(-150, game.world.height - 4100, 'ground');
     ledge.body.immovable = true;
-	ledge = platforms.create(450, game.world.height - 4350, 'ground');
+	ledge = platforms.create(450, game.world.height - 4300, 'ground');
     ledge.body.immovable = true;
     // The player and its settings
     player = game.add.sprite(32, game.world.height - 150, 'dude');
