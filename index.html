@@ -50,7 +50,7 @@ function create() {
     platforms = game.add.group();
     //  We will enable physics for any object that is created in this group
     platforms.enableBody = true;
-	game.world.setBounds(0, 0, 600, 5000);
+	game.world.setBounds(0, 0, 400, 4700);
     // Here we create the ground.
     var ground = platforms.create(0, game.world.height - 64, 'ground');
     //  Scale it to fit the width of the game (the original sprite is 400x32 in size)
@@ -73,37 +73,37 @@ function create() {
     ledge.body.immovable = true;
 	ledge = platforms.create(-200, game.world.height - 1350, 'ground');
     ledge.body.immovable = true;
-	ledge = platforms.create(500, game.world.height - 1550, 'ground');
+	ledge = platforms.create(500, game.world.height - 1450, 'ground');
     ledge.body.immovable = true;
-    ledge = platforms.create(-100, game.world.height - 1750, 'ground');
+    ledge = platforms.create(-100, game.world.height - 1650, 'ground');
     ledge.body.immovable = true;
-	ledge = platforms.create(450, game.world.height - 1950, 'ground');
+	ledge = platforms.create(450, game.world.height - 1850, 'ground');
     ledge.body.immovable = true;
-	ledge = platforms.create(-100, game.world.height - 2150, 'ground');
+	ledge = platforms.create(-100, game.world.height - 2050, 'ground');
     ledge.body.immovable = true;
-	ledge = platforms.create(350, game.world.height - 2350, 'ground');
+	ledge = platforms.create(350, game.world.height - 2250, 'ground');
     ledge.body.immovable = true;
-	ledge = platforms.create(-100, game.world.height - 2550, 'ground');
+	ledge = platforms.create(-100, game.world.height - 2450, 'ground');
     ledge.body.immovable = true;
-	ledge = platforms.create(0, game.world.height - 2750, 'ground');
+	ledge = platforms.create(0, game.world.height - 2650, 'ground');
     ledge.body.immovable = true;
-	ledge = platforms.create(450, game.world.height - 2950, 'ground');
+	ledge = platforms.create(450, game.world.height - 2850, 'ground');
     ledge.body.immovable = true;
-	ledge = platforms.create(-100, game.world.height - 3150, 'ground');
+	ledge = platforms.create(-100, game.world.height - 3050, 'ground');
     ledge.body.immovable = true;
-	ledge = platforms.create(450, game.world.height - 3350, 'ground');
+	ledge = platforms.create(450, game.world.height - 3250, 'ground');
     ledge.body.immovable = true;
-	ledge = platforms.create(-100, game.world.height - 3550, 'ground');
+	ledge = platforms.create(-100, game.world.height - 3350, 'ground');
     ledge.body.immovable = true;
-	ledge = platforms.create(450, game.world.height - 3750, 'ground');
+	ledge = platforms.create(450, game.world.height - 3550, 'ground');
     ledge.body.immovable = true;
-	ledge = platforms.create(-100, game.world.height - 3950, 'ground');
+	ledge = platforms.create(-100, game.world.height - 3750, 'ground');
     ledge.body.immovable = true;
-	ledge = platforms.create(500, game.world.height - 4150, 'ground');
+	ledge = platforms.create(500, game.world.height - 3950, 'ground');
     ledge.body.immovable = true;
-	ledge = platforms.create(-150, game.world.height - 4350, 'ground');
+	ledge = platforms.create(-150, game.world.height - 4150, 'ground');
     ledge.body.immovable = true;
-	ledge = platforms.create(450, game.world.height - 4550, 'ground');
+	ledge = platforms.create(450, game.world.height - 4350, 'ground');
     ledge.body.immovable = true;
     // The player and its settings
     player = game.add.sprite(32, game.world.height - 150, 'dude');
