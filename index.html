@@ -58,7 +58,9 @@ function create() {
     //  This stops it from falling away when you jump on it
     ground.body.immovable = true;
     game.camera.follow(player);
-    //  Now let's create a shit ton of ledges
+    //  Now let's create a sh** ton of ledges
+	
+	/*still figuring out how to make the ledges pop up randomly :/ 
 	var upperLimit = 500;
 	var lowerLimit = -200;
 	for (i = 0; i <500; i++){	
@@ -67,7 +69,8 @@ function create() {
 	ledge = platforms.create(400, game.world.height - 450, 'ground');
     ledge.body.immovable = true;
 	};
-	/*ledge = platforms.create(-150, game.world.height - 600, 'ground');
+	*/
+	ledge = platforms.create(-150, game.world.height - 600, 'ground');
     ledge.body.immovable = true;
 	ledge = platforms.create(400, game.world.height - 800, 'ground');
     ledge.body.immovable = true;
@@ -109,7 +112,7 @@ function create() {
     ledge.body.immovable = true;
 	ledge = platforms.create(500, game.world.height - 4235, 'ground');
     ledge.body.immovable = true;
-    */
+    
     // The player and its settings
     player = game.add.sprite(32, game.world.height - 150, 'dude');
     //  We need to enable physics on the player
